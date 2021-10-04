@@ -1,3 +1,4 @@
 # cbct-monoenergy-simulation
 This software package is used for CBCT monoenergetic projection simulation. The forward projection algorithm adopted here is Jacob's method which is an incremental version of Siddon's method. To accelerate the simulation speed, GPU is used to parallel the computation. The parallel strategy is that one single thread is for one single ray. To make use of the hardware-level interpolation, the 3D phantom is bonded to the texture memory.
 'test_proj.m' is the entrance file to the project. Before running the code, you should open 'compileSourceCodes.m', change the CUDA path and then run the file to obtain the .obj file and .mexw64 file. After the compiling, you should run 'test_proj.m' file and then you will obtain the simulated projection covering 360 degrees along the circular trajectory.
+Really thank Dr. Ander Biguri for his help not only in coding but also in algorithm development.
