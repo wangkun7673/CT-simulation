@@ -79,35 +79,35 @@ __global__ void kernelPixelDetector(Geometry geo, float* dProjection_phan, Point
 	// for x
 	if(source.x < detectPixel[idx].x)
 	{
-		imin = (am==axm)? 2               : ceil ((source.x + am*ray.x - x_planes_1) / geo.fVoxel);
-		imax = (aM==axM)? (geo.nVoxelX+1) : floor((source.x + aM*ray.x - x_planes_1) / geo.fVoxel);
+		imin = (am==axm)? 1                 : ceil ((source.x + am*ray.x - x_planes_1) / geo.fVoxel);
+		imax = (aM==axM)? geo.nVoxelX       : floor((source.x + aM*ray.x - x_planes_1) / geo.fVoxel);
 	}
 	else
 	{
-		imax = (am==axm)?  geo.nVoxelX    : floor((source.x + am*ray.x - x_planes_1) / geo.fVoxel);
-		imin = (aM==axM)?  1              : ceil ((source.x + aM*ray.x - x_planes_1) / geo.fVoxel); 
+		imax = (am==axm)? (geo.nVoxelX - 1) : floor((source.x + am*ray.x - x_planes_1) / geo.fVoxel);
+		imin = (aM==axM)? 0                 : ceil ((source.x + aM*ray.x - x_planes_1) / geo.fVoxel); 
 	}
 	// for y
 	if(source.y < detectPixel[idx].y)
 	{
-		jmin = (am==aym)? 2               : ceil ((source.y + am*ray.y - y_planes_1) / geo.fVoxel);
-		jmax = (aM==ayM)? (geo.nVoxelY+1) : floor((source.y + aM*ray.y - y_planes_1) / geo.fVoxel);
+		jmin = (am==aym)? 1                 : ceil ((source.y + am*ray.y - y_planes_1) / geo.fVoxel);
+		jmax = (aM==ayM)? geo.nVoxelY       : floor((source.y + aM*ray.y - y_planes_1) / geo.fVoxel);
 	}
 	else
 	{
-		jmax = (am==aym)?  geo.nVoxelY    : floor((source.y + am*ray.y - y_planes_1) / geo.fVoxel);
-		jmin = (aM==ayM)?  1              : ceil ((source.y + aM*ray.y - y_planes_1) / geo.fVoxel); 
+		jmax = (am==aym)? (geo.nVoxelY - 1) : floor((source.y + am*ray.y - y_planes_1) / geo.fVoxel);
+		jmin = (aM==ayM)? 0                 : ceil ((source.y + aM*ray.y - y_planes_1) / geo.fVoxel); 
 	}
 	// for z
 	if(source.z < detectPixel[idx].z)
 	{
-		kmin = (am==azm)? 2               : ceil ((source.z + am*ray.z - z_planes_1) / geo.fVoxel);
-		kmax = (aM==azM)? (geo.nVoxelZ+1) : floor((source.z + aM*ray.z - z_planes_1) / geo.fVoxel);
+		kmin = (am==azm)? 1                 : ceil ((source.z + am*ray.z - z_planes_1) / geo.fVoxel);
+		kmax = (aM==azM)? geo.nVoxelZ       : floor((source.z + aM*ray.z - z_planes_1) / geo.fVoxel);
 	}
 	else
 	{
-		kmax = (am==azm)?  geo.nVoxelZ    : floor((source.z + am*ray.z - z_planes_1) / geo.fVoxel);
-		kmin = (aM==azM)?  1              : ceil ((source.z + aM*ray.z - z_planes_1) / geo.fVoxel); 
+		kmax = (am==azm)? (geo.nVoxelZ - 1) : floor((source.z + am*ray.z - z_planes_1) / geo.fVoxel);
+		kmin = (aM==azM)? 0                 : ceil ((source.z + aM*ray.z - z_planes_1) / geo.fVoxel); 
 	}
 
 	float ax, ay, az;
